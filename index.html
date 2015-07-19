@@ -22,7 +22,7 @@
         <legend>Coberturas</legend>
           <label for="oftalmologia">Oftalmologia:</label><input id="oftalmologia" name="oftalmologia" type="checkbox" ng-model="seguro.coberturas.oftalmologia" /><br>
           <label for="dental">Dental:</label><input id="dental" name="dental" type="checkbox" ng-model="seguro.coberturas.dental" /><br>
-          <label for="fecundacionInVitro">Fecundacion In Vitro:</label><input id="fecundacionInVitro" name="fecundacionInVitro" type="checkbox" ng-model="seguro.coberturas.fecundacionInVitro" /><br>
+          <label ng-show="seguro.sexo==='M'" for="fecundacionInVitro">Fecundacion In Vitro:</label><input ng-show="seguro.sexo==='M'" id="fecundacionInVitro" name="fecundacionInVitro" type="checkbox" ng-model="seguro.coberturas.fecundacionInVitro" /><br>
       </fieldset>      
       <fieldset>
       <legend>Enfermedades</legend>
@@ -30,7 +30,7 @@
           <label for="estomacal">Estomacal:</label><input id="estomacal" name="estomacal" type="checkbox" ng-model="seguro.enfermedades.estomacal" /><br>
           <label for="rinyones">Ri&ntilde;ones:</label><input id="rinyones" name="rinyones" type="checkbox" ng-model="seguro.enfermedades.rinyones" /><br>
           <label for="alergia">Alergia:</label><input id="alergia" name="alergia" type="checkbox" ng-model="seguro.enfermedades.alergia" /><br>
-          <label for="nombreAlergia">Nombre de la alergia:</label><input id="nombreAlergia" name="nombreAlergia" type="text" ng-model="seguro.enfermedades.nombreAlergia" /><br>
+          <label for="nombreAlergia">Nombre de la alergia:</label><input ng-disabled="seguro.enfermedades.alergia===false" id="nombreAlergia" name="nombreAlergia" type="text" ng-model="seguro.enfermedades.nombreAlergia" /><br>
       </fieldset> 
     </form>
   </body>

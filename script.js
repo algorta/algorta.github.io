@@ -4,7 +4,7 @@ function RemoteResource($http,baseUrl) {
   this.get=function(fnOK,fnError) {
         $http({
           method: 'GET', 
-          url: baseUrl+'/datos.json'
+          url: baseUrl+'/DB/datos.json'
         }).success(function(data, status, headers, config) {
             fnOK(data);
         }).error(function(data, status, headers, config) {

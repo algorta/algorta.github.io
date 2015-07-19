@@ -25,7 +25,6 @@ function RemoteResourceProvider() {
  
 app.provider("remoteResource",RemoteResourceProvider);
  
- 
 app.constant("baseUrl", ".");
 app.config(['baseUrl', 'remoteResourceProvider',function(baseUrl, remoteResourceProvider) {
     remoteResourceProvider.setBaseUrl(baseUrl);

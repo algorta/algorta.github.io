@@ -30,7 +30,6 @@ app.config(['baseUrl', 'remoteResourceProvider',function(baseUrl, remoteResource
     remoteResourceProvider.setBaseUrl(baseUrl);
 }]);
  
- 
 app.controller("SeguroController", ['$scope', 'remoteResource',function($scope, remoteResource) {
     $scope.seguro = {
       nif: "",

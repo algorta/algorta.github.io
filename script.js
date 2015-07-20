@@ -1,5 +1,28 @@
 var app = angular.module("app", []);
  
+function RemoteResource($http,baseUrl) {
+  this.get=function(fnOK,fnError) {
+        $http({
+          method: 'GET', 
+          url: baseUrl+'/DB/datos.json'
+        }).success(function(data, status, headers, config) {
+            fnOK(data);
+        }).error(function(data, status, headers, config) {
+            fnError(data,status);
+        });
+      }
+}
+ 
+function RemoteResourceProvider() {
+  var _baseUrl;
+  this.setBaseUrl=function(baseUrl) {
+    _baseUrl=baseUrl;
+  }
+  this.$get=['$http',function($http) {
+    return new RemoteResource($http,_baseUrl);
+  }];
+}
+ 
 app.provider("remoteResource",RemoteResourceProvider);
  
 app.constant("baseUrl", ".");
@@ -41,26 +64,3 @@ app.controller("SeguroController", ['$scope', 'remoteResource',function($scope, 
  
   }
 ]);
-
-function RemoteResource($http,baseUrl) {
-  this.get=function(fnOK,fnError) {
-        $http({
-          method: 'GET', 
-          url: baseUrl+'/DB/datos.json'
-        }).success(function(data, status, headers, config) {
-            fnOK(data);
-        }).error(function(data, status, headers, config) {
-            fnError(data,status);
-        });
-      }
-}
- 
-function RemoteResourceProvider() {
-  var _baseUrl;
-  this.setBaseUrl=function(baseUrl) {
-    _baseUrl=baseUrl;
-  }
-  this.$get=['$http',function($http) {
-    return new RemoteResource($http,_baseUrl);
-  }];
-}

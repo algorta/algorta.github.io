@@ -1,4 +1,4 @@
-var gifwalletApp = angular.module('gifwalletApp', ['ui.bootstrap', 'ngRoute']);
+var gifwalletApp = angular.module('gifwalletApp', ['ui.bootstrap']);
 
 gifwalletApp.controller('GifListController', ['$rootScope', '$scope', 'Storage',
     function($rootScope, $scope, Storage) {

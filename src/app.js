@@ -93,7 +93,7 @@ gifwalletApp.directive('favorite', ['Storage', '$compile',
             restrict: 'E',
             replace: true,
             link: function(scope, elem, attrs) {
-                html = 'www.google.es';
+                html = '<a ng-click="favItem('+attrs.key+')"><span class="glyphicon" ng-class="getClass('+attrs.key+')"></span> Favorito</a>';
                 
                 scope.favItem = function(key) {
                     Storage.favorite( key );
